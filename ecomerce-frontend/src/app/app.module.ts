@@ -5,22 +5,20 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './pages/home/home.component';
 import { SlidebarComponent } from './components/slidebar/slidebar.component';
-import { SharedModule } from './shared/shared.module';
-import { LoginComponent } from './auth/login/login.component';
-import { RegisterComponent } from './auth/register/register.component';
+import { SharedModule } from '@shared/shared.module';
+import { AuthModule } from '@auth/auth.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     SlidebarComponent,
-    LoginComponent,
-    RegisterComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    SharedModule
+    SharedModule,
+    AuthModule
   ],
   providers: [],
   bootstrap: [AppComponent]
