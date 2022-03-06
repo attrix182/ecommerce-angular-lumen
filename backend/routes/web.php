@@ -16,3 +16,22 @@
 $router->get('/', function () use ($router) {
     return $router->app->version();
 });
+
+
+//List products
+$router->get('/products', 'ProductController@listAll');
+$router->get('/products/{id}', 'ProductController@listOne');
+
+//Create products
+$router->post('/products', 'ProductController@create');
+
+//Update products
+$router->put('/products/{id}', 'ProductController@update');
+
+//Delete products
+$router->delete('/products/{id}', 'ProductController@delete');
+
+
+
+
+
