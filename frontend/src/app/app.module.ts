@@ -8,6 +8,7 @@ import { SlidebarComponent } from './components/slidebar/slidebar.component';
 import { SharedModule } from '@shared/shared.module';
 import { AuthModule } from '@auth/auth.module';
 import { ProductsGridComponent } from './components/products-grid/products-grid.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [

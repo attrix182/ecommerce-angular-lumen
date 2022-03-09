@@ -14,6 +14,7 @@ public products: any[] =[];
 
   ngOnInit(): void {
     this.getAllProducts();
+    console.log(this.products);
   }
 
   getAllProducts() {
