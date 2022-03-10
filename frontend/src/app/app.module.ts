@@ -8,6 +8,7 @@ import { SlidebarComponent } from './components/slidebar/slidebar.component';
 import { SharedModule } from '@shared/shared.module';
 import { AuthModule } from '@auth/auth.module';
 import { ProductsGridComponent } from './components/products-grid/products-grid.component';
+import { ProductCardComponent } from './components/products-grid/product-card/product-card.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { ProductsGridComponent } from './components/products-grid/products-grid.
     HomeComponent,
     SlidebarComponent,
     ProductsGridComponent,
+    ProductCardComponent,
   ],
   imports: [
     BrowserModule,

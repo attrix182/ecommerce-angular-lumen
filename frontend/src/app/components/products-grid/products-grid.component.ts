@@ -18,8 +18,9 @@ public products: any[] =[];
   }
 
   getAllProducts() {
-    return this.productsSvc.getAllProducts().subscribe((res) => {
+    return this.productsSvc.getAllProducts().subscribe((res: any) => {
      this.products.push(res)
+     this.products = this.products[0];
     });
   }
 }
