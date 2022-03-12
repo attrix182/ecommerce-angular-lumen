@@ -1,0 +1,14 @@
+.carousel{
+    height: 500px;
+    background-color: #f3f3f3;
+    overflow: hidden;
+    .carousel-item-container{
+        height: 500px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        img{
+            height: 500px;
+        }
+    }
+}

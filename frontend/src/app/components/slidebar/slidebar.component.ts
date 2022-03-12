@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import * as AOS from 'aos';
 
 @Component({
   selector: 'os-slidebar',
@@ -10,6 +11,10 @@ export class SlidebarComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  onClick(){
+    AOS.refresh();
   }
 
 }
