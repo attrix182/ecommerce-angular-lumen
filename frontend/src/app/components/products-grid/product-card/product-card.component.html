@@ -29,10 +29,16 @@
     <p class="text">{{ product.description }}</p>
   </article>
 
-  <div class="modal-footer">
+  <div class="btn-add">
+    <button class="btn btn-dark mb-3" (click)="addToCart()">
+      <i class="fas fa-cart-plus"></i>
+      Añadir al carrito
+    </button>
 
+  </div>
+
+  <div class="modal-footer">
     <small class="text-right mt-3" *ngIf="product.available">Disponible: Hay unidades</small>
     <small class="text-right mt-3" *ngIf="!product.available">Disponible: Fuera de stock</small>
-
   </div>
 </ng-template>

@@ -1,0 +1,35 @@
+<ng-template #modalPost let-modal>
+    <article class="modal-body">
+      <div class="exit">
+        <i (click)="modal.dismiss('Cross click')" class="btn btn-dark"><i class="fas fa-times"></i> </i>
+      </div>
+  
+      <div *ngIf="product.image" class="card-img-top">
+        <img src="{{ product.image }}" class="img-fluid" alt="{{ product.name }}" />
+      </div>
+  
+      <div *ngIf="!product.image" class="card-img-top">
+        <img
+          src="https://violamagazine.online/wp-content/uploads/sites/31/2021/02/No-Image.jpg"
+          class="img-fluid"
+          alt="{{ product.name }}"
+        />
+      </div>
+  
+      <h1 class="text-center title mt-3">{{ product.name }}</h1>
+  
+      <h2 class="text-left subtitle mt-3 mb-3">${{ product.price }}</h2>
+      <p class="text">{{ product.description }}</p>
+    </article>
+  
+    <div class="btn-add">
+
+  
+    </div>
+  
+    <div class="modal-footer">
+      <small class="text-right mt-3" *ngIf="product.available">Disponible: Hay unidades</small>
+      <small class="text-right mt-3" *ngIf="!product.available">Disponible: Fuera de stock</small>
+    </div>
+  </ng-template>
+  

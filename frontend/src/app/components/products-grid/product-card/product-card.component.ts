@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewChild, TemplateRef, Input } from '@angular/core';
+import { CartService } from '@app/services/cart.service';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
@@ -13,12 +14,18 @@ export class ProductCardComponent implements OnInit {
   modalPost: TemplateRef<any>;
   public showPost: any = '';
 
-  constructor( private modalService: NgbModal) {}
+  constructor(private modalService: NgbModal, private cartSVC: CartService) {}
 
   ngOnInit(): void {}
 
   openModalPost(post) {
     this.showPost = post;
     this.modalService.open(this.modalPost);
+  }
+
+  addToCart() {
+    this.cartSVC.additem(this.product);
+
+    this.modalService.dismissAll();
   }
 }

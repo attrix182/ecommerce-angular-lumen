@@ -9,7 +9,12 @@
       <div class="navbar-nav ml-auto">
         <a pageScroll href="#home" class="nav-item nav-link">Home</a>
         <a pageScroll href="#products" class="nav-item nav-link">Productos</a>
+        <a pageScroll  class="nav-item nav-link cart" (click)="setShowCart($event)"> <i class="fas fa-cart-plus"></i> {{amount}}</a>
       </div>
     </div>
   </div>
-</div>
+</div>  
+
+<os-cart (show)="setShowCart($event)"></os-cart>
+
+

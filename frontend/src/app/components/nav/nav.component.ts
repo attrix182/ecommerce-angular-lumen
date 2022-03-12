@@ -1,18 +1,27 @@
-import { Component, HostListener, OnInit } from '@angular/core';
+import { Component, EventEmitter, HostListener, OnInit, Output } from '@angular/core';
+import { CartService } from '@app/services/cart.service';
 
 @Component({
   selector: 'os-nav',
   templateUrl: './nav.component.html',
   styleUrls: ['./nav.component.scss']
 })
-
 @HostListener('scroll', ['$event'])
-
 export class NavComponent implements OnInit {
   public toggle: boolean = false;
-  constructor() {}
+  public amount: number = 0;
+  public showCart: boolean = false;
 
-  ngOnInit(): void {}
+  @Output() show = new EventEmitter<string>();
+
+  constructor(private cartSVC: CartService) {}
+
+  ngOnInit(): void {
+    this.cartSVC.getItems$().subscribe((res) => {
+      this.amount = res.length;
+      console.log(res);
+    });
+  }
 
   onWindowScroll(event: any) {
     let element = document.querySelector('.navbar') as HTMLElement;
@@ -38,5 +47,10 @@ export class NavComponent implements OnInit {
       element2.classList.remove('show');
       this.toggle = false;
     }
+  }
+
+  setShowCart(ev:any) {
+    this.show.emit("emito");
+    console.log(this.showCart);
   }
 }

@@ -10,6 +10,7 @@ import { AuthModule } from '@auth/auth.module';
 import { ProductsGridComponent } from './components/products-grid/products-grid.component';
 import { ProductCardComponent } from './components/products-grid/product-card/product-card.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     SlidebarComponent,
     ProductsGridComponent,
     ProductCardComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

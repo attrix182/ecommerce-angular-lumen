@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ProductsService } from '@app/shared/services/products.service';
+import { ProductsService } from '@app/services/products.service';
 
 @Component({
   selector: 'os-products-grid',

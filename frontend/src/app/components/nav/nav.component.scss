@@ -72,6 +72,7 @@
   }
 }
 
+
 @media (max-width: 991.98px) {
   .navbar {
       padding: 15px;
@@ -89,4 +90,11 @@
   .navbar .dropdown-menu {
       box-shadow: none;
   }
+}
+
+i{
+  font-size: 20px;
+}
+.cart{
+  font-weight: 500;
 }
