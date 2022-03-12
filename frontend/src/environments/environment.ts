@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiURL: 'http://apiecommerce.overclocksolutions.com.ar/public/'
+  apiURL: 'http://apiecommerce.overclocksolutions.com.ar/'
 };
 
 /*

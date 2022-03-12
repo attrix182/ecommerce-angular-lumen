@@ -9,6 +9,7 @@ import { SharedModule } from '@shared/shared.module';
 import { AuthModule } from '@auth/auth.module';
 import { ProductsGridComponent } from './components/products-grid/products-grid.component';
 import { ProductCardComponent } from './components/products-grid/product-card/product-card.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { ProductCardComponent } from './components/products-grid/product-card/pr
     SharedModule,
     AuthModule,
     HttpClientModule,
+    NgbModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

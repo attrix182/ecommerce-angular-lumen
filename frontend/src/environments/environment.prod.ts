@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  apiURL: 'http://apiecommerce.overclocksolutions.com.ar/public/'
+  apiURL: 'http://apiecommerce.overclocksolutions.com.ar/'
 };

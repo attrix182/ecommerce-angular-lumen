@@ -1,6 +1,5 @@
-import { Input } from '@angular/core';
-import { Component, OnInit } from '@angular/core';
-
+import { Component, OnInit, ViewChild, TemplateRef, Input } from '@angular/core';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'os-product-card',
@@ -8,14 +7,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./product-card.component.scss']
 })
 export class ProductCardComponent implements OnInit {
+  @Input() product: any;
 
-@Input() product: any;
+  @ViewChild('modalPost', { read: TemplateRef })
+  modalPost: TemplateRef<any>;
+  public showPost: any = '';
 
-  constructor() { }
+  constructor( private modalService: NgbModal) {}
 
-  ngOnInit(): void {
+  ngOnInit(): void {}
+
+  openModalPost(post) {
+    this.showPost = post;
+    this.modalService.open(this.modalPost);
   }
-
-
 }
-
