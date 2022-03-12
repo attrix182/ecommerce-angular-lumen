@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-slidebar',
+  selector: 'os-slidebar',
   templateUrl: './slidebar.component.html',
   styleUrls: ['./slidebar.component.scss']
 })
