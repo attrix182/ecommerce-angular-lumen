@@ -1,26 +1,111 @@
 <ng-template #modalCart let-modal>
-  <article class="modal-body">
-    <div class="exit">
-      <i (click)="modal.dismiss('Cross click')" class="btn btn-dark"><i class="fas fa-times"></i> </i>
-    </div>
+  <div class="exit modal-body">
+    <i (click)="modal.dismiss('Cross click')" class="btn btn-dark"><i class="fas fa-times"></i> </i>
+  </div>
 
+  <article class="modal-body" *ngIf="!visibilityFormBuy">
     <ul class="list-group mb-3" *ngFor="let product of items">
       <li class="list-group-item d-flex justify-content-between lh-sm">
-        <img src="{{product.image}}" alt="" height="55px">
+        <img src="{{ product.image }}" alt="" height="55px" />
         <div>
           <h6 class="my-0">{{ product.name }}</h6>
           <small class="text-muted"></small>
         </div>
         <span class="text-muted">${{ product.price }}</span>
+        <button class="btn btn-outline-danger" (click)="removeItem(product)">
+          <i class="fas fa-trash"></i>
+        </button>
       </li>
     </ul>
 
     <div class="btn-pay">
-      <button class="btn btn-dark mb-3" (click)="goToPay()">
+      <button class="btn btn-dark mb-3" (click)="changeShowForm()">
         <i class="fas fa-cart-plus"></i>
-        Ir a pagar
+        ${{ this.totalPrice }}
       </button>
     </div>
-
   </article>
+
+  <div *ngIf="visibilityFormBuy">
+    <article class="modal-body">
+      <h3 class="text-center title">Datos personales</h3>
+
+      <div [formGroup]="formGroup">
+        <div class="row mt-2">
+          <div class="col-md-12">
+            <div class="form-group">
+              <input
+                [class]="isValidField('name')"
+                type="text"
+                class="form-control"
+                placeholder="Nombre"
+                formControlName="name"
+                autofocus
+              />
+              <span *ngIf="debeMostrarError('name')" class="invalid-feedback">
+                {{ obtenerTextoError('name') }}
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <div class="row mt-2">
+          <div class="col-md-12">
+            <div class="form-group">
+              <input
+                [class]="isValidField('phone')"
+                type="text"
+                class="form-control"
+                placeholder="Teléfono"
+                formControlName="phone"
+              />
+              <span *ngIf="debeMostrarError('phone')" class="invalid-feedback">
+                {{ obtenerTextoError('phone') }}
+              </span>
+            </div>
+          </div>
+        </div>
+        <div class="row mt-2">
+          <div class="col-md-12">
+            <div class="form-group">
+              <input
+                [class]="isValidField('address')"
+                type="text"
+                class="form-control"
+                placeholder="Dirección"
+                formControlName="address"
+              />
+              <span *ngIf="debeMostrarError('address')" class="invalid-feedback">
+                {{ obtenerTextoError('address') }}
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <h3 class="text-center title mt-3">Productos:</h3>
+        <button class="btn btn-dark mb-3" (click)="changeShowForm()">
+          <i class="fas fa-pen"></i>
+          Modificar
+        </button>
+
+        <ul class="list-group mb-3 mt-3" *ngFor="let product of items">
+          <li class="list-group-item d-flex justify-content-between lh-sm">
+            <img src="{{ product.image }}" alt="" height="55px" />
+            <div>
+              <h6 class="my-0">{{ product.name }}</h6>
+              <small class="text-muted"></small>
+            </div>
+            <span class="text-muted">${{ product.price }}</span>
+          </li>
+        </ul>
+
+        <div class="btn-pay">
+          <button class="btn btn-dark mb-3" [disabled]="formGroup.invalid" (click)="sendOrder()">
+            <i class="fas fa-cart-plus"></i>
+            Enviar pedido
+          </button>
+        </div>
+      </div>
+    </article>
+  </div>
 </ng-template>

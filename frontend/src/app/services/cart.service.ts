@@ -20,7 +20,14 @@ export class CartService {
     this.cart$.next(this.cart);
   }
 
+  removeItem(item: any) {
+    if(!item) return
+    this.cart = this.cart.filter(i => i.id !== item.id);
+    this.cart$.next(this.cart);
+  }
+
   getItems$(): Observable<any> {
+
     return this.cart$.asObservable();
   }
 }

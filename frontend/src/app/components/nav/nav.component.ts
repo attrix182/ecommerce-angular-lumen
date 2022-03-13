@@ -12,6 +12,7 @@ export class NavComponent implements OnInit {
   public amount: number = 0;
   public showCart: boolean = false;
   public itemsCart: any[] = [];
+  public totalPrice: number = 0;
 
   constructor(private cartSVC: CartService) {}
 
@@ -19,7 +20,16 @@ export class NavComponent implements OnInit {
     this.cartSVC.getItems$().subscribe((res) => {
       this.amount = res.length;
       this.itemsCart = res;
+      this.totalPrice = this.getTotalPrice();
     });
+  }
+
+  getTotalPrice() {
+    let total = 0;
+    this.itemsCart.forEach((item) => {
+      total += item.price;
+    });
+    return total;
   }
 
   onWindowScroll(event: any) {

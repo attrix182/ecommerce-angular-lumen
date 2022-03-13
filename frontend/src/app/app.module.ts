@@ -11,6 +11,7 @@ import { ProductsGridComponent } from './components/products-grid/products-grid.
 import { ProductCardComponent } from './components/products-grid/product-card/product-card.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FooterComponent } from './components/footer/footer.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,8 @@ import { FooterComponent } from './components/footer/footer.component';
     AuthModule,
     HttpClientModule,
     NgbModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
