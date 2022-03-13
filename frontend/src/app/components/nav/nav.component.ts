@@ -11,15 +11,14 @@ export class NavComponent implements OnInit {
   public toggle: boolean = false;
   public amount: number = 0;
   public showCart: boolean = false;
-
-  @Output() show = new EventEmitter<string>();
+  public itemsCart: any[] = [];
 
   constructor(private cartSVC: CartService) {}
 
   ngOnInit(): void {
     this.cartSVC.getItems$().subscribe((res) => {
       this.amount = res.length;
-      console.log(res);
+      this.itemsCart = res;
     });
   }
 
@@ -49,8 +48,9 @@ export class NavComponent implements OnInit {
     }
   }
 
-  setShowCart(ev:any) {
-    this.show.emit("emito");
+  setShowCart() {
+    this.showCart = !this.showCart;
     console.log(this.showCart);
+    
   }
 }

@@ -8,30 +8,24 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
   styleUrls: ['./cart.component.scss']
 })
 export class CartComponent implements OnInit {
-  @ViewChild('modalPost', { read: TemplateRef })
-  modalPost: TemplateRef<any>;
-  public product: any = '';
+  @ViewChild('modalCart', { read: TemplateRef })
+  modalCart: TemplateRef<any>;
 
-  items: any[] = [];
-  @Input() show: boolean = false;
+  //public product: any = '';
+
+  @Input() items: any[] = [];
 
   constructor(private modalService: NgbModal, private cartSVC: CartService) {}
 
-  ngOnInit(): void {
-    this.getCartItems();
+  ngOnInit() {
+    setTimeout(() => {
+
+    this.openModalCart();
+    }, 1000);
   }
 
   openModalCart() {
-    console.log("llego");
-    console.log(this.items[0]);
-    this.modalService.open(this.items[0]);
-  }
-
-
-
-  getCartItems() {
-    this.cartSVC.getItems$().subscribe((res) => {
-      this.items = res;
-    });
+    console.log('open');
+    this.modalService.open(this.modalCart);
   }
 }

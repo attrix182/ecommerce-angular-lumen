@@ -12,6 +12,7 @@ export class ProductCardComponent implements OnInit {
 
   @ViewChild('modalPost', { read: TemplateRef })
   modalPost: TemplateRef<any>;
+  
   public showPost: any = '';
 
   constructor(private modalService: NgbModal, private cartSVC: CartService) {}
