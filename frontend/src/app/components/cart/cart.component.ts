@@ -21,7 +21,7 @@ export class CartComponent implements OnInit {
     setTimeout(() => {
 
     this.openModalCart();
-    }, 1000);
+    }, 300);
   }
 
   openModalCart() {
