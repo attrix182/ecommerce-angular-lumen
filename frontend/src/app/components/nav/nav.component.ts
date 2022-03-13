@@ -49,12 +49,16 @@ export class NavComponent implements OnInit {
   }
 
   setShowCart() {
-    if( this.amount > 0 ) {
-    this.showCart = true;
+    if (this.amount > 0) {
+      this.showCart = true;
     } else {
-    console.log('no hay items en el carrito');
+      this.showCart = false;
+      console.log('no hay items en el carrito');
     }
- 
-    
+    console.log(this.showCart);
+  }
+
+  closeCart() {
+    this.showCart = false;
   }
 }

@@ -15,6 +15,6 @@
   </div>
 </div>  
 
-<os-cart *ngIf="showCart" [items]="itemsCart" ></os-cart>
+<os-cart *ngIf="showCart" [items]="itemsCart" (changeShowCart)="closeCart()" ></os-cart>
 
 

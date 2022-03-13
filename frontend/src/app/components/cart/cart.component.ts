@@ -1,6 +1,8 @@
-import { Component, OnInit, ViewChild, TemplateRef, Input } from '@angular/core';
+
+import { Component, OnInit, ViewChild, TemplateRef, Input, Output, EventEmitter } from '@angular/core';
+import { BuyService } from '@app/services/buy.service';
 import { CartService } from '@app/services/cart.service';
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModal, NgbModalConfig } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'os-cart',
@@ -13,19 +15,54 @@ export class CartComponent implements OnInit {
 
   //public product: any = '';
 
+  @Output() changeShowCart: EventEmitter<any> = new EventEmitter<any>();
+
   @Input() items: any[] = [];
 
-  constructor(private modalService: NgbModal, private cartSVC: CartService) {}
+  constructor(
+    private modalService: NgbModal,
+    private cartSVC: CartService,
+    config: NgbModalConfig,
+    private buySvc: BuyService
+  ) {
+    config.beforeDismiss = () => {
+      this.changeShowCart.emit(false);
+      return true;
+    };
+  }
 
   ngOnInit() {
     setTimeout(() => {
-
-    this.openModalCart();
+      this.openModalCart();
     }, 300);
   }
 
   openModalCart() {
-    console.log('open');
     this.modalService.open(this.modalCart);
+  }
+
+  setVisibility() {
+    this.changeShowCart.emit(false);
+  }
+
+  goToPay() {
+
+
+
+    let link = this.buySvc.generatePayWhatsapp({
+      products: this.items,
+      total: this.getTotalAMount()
+    });
+
+    window.open(link, '_blank');
+    console.log(link);
+  }
+
+  getTotalAMount() {
+    let total = 0;
+    this.items.forEach((element) => {
+      total += element.price;
+    });
+    return total;
   }
 }
