@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { NavComponent } from '@app/components/nav/nav.component';
 import { CartComponent } from '@app/components/cart/cart.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 
@@ -14,7 +15,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
   imports: [
     CommonModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    NgbModule
     
   ],
   exports: [

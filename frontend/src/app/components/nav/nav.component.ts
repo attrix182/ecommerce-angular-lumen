@@ -13,6 +13,7 @@ export class NavComponent implements OnInit {
   public showCart: boolean = false;
   public itemsCart: any[] = [];
   public totalPrice: number = 0;
+  public emptyCart: boolean = true;
 
   constructor(private cartSVC: CartService) {}
 

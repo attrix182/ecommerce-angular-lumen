@@ -21,6 +21,7 @@ export class CartComponent extends CartFormAbstract implements OnInit {
   @Input() totalPrice: number = 0;
 
   visibilityFormBuy: boolean = false;
+  showDetail: boolean = false;
 
   constructor(
     private modalService: NgbModal,
@@ -39,6 +40,7 @@ export class CartComponent extends CartFormAbstract implements OnInit {
   ngOnInit() {
     setTimeout(() => {
       this.openModalCart();
+      console.log(this.items);
     }, 300);
 
     this.inicializarForm();
@@ -57,12 +59,18 @@ export class CartComponent extends CartFormAbstract implements OnInit {
     this.visibilityFormBuy = !this.visibilityFormBuy;
   }
 
+  changeShowDetail(){
+    this.showDetail = !this.showDetail;
+  }
+
   getTotalAMount() {
     let total = 0;
-    this.items.forEach((element) => {
-      total += element.price;
-    });
+    this.items.forEach(item => {
+      total += item.price * item.amount;
+    }
+    );
     return total;
+
   }
 
   sendOrder() {

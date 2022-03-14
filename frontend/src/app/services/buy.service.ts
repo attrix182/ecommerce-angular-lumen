@@ -11,7 +11,7 @@ export class BuyService {
   generatePayWhatsapp(data: any) {
     let msj = `Hola, soy ${data.name}, vivo en ${data.address}, mi teléfono es ${data.phone}, quiero comprar:`;
     data.products.forEach((element) => {
-      msj += `\r\n -${element.name} $${element.price}`;
+      msj += `\r\n -${element.name} $${element.price}, cantidad: ${element.amount}`;
     });
     msj += `\r\n Total: $${data.total}`;
 
